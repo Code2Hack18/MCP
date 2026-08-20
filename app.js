@@ -1,10 +1,10 @@
-import {server} from "./server.js";
-import {StdioServerTransport} from "@modelcontextprotocol/server";
+import { server } from "./server.js";
+import { StdioServerTransport } from "@modelcontextprotocol/server/stdio";
 
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("MCP Server running...");
+  console.log("MCP Server running...");
 }
 
 main().catch((error) => {
