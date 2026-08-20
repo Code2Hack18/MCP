@@ -1,4 +1,13 @@
-import {McpServer} from "@modelcontextprotocol/server";
+import {server} from "./server.js";
 import {StdioServerTransport} from "@modelcontextprotocol/server";
-import {z} from "zod";
 
+async function main() {
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+  console.error("MCP Server running...");
+}
+
+main().catch((error) => {
+  console.error("Fatal error in main():", error);
+  process.exit(1);
+});

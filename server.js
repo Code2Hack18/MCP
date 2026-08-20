@@ -11,11 +11,11 @@ server.registerTool(
     "send-mail",
     {
         description: "Send an email",
-        
+
         inputSchema: {
-            to: z.string(),
-            subject: z.string(),
-            body: z.string(),
+            to: z.string().array().describe("Recipient email addresses"),
+            subject: z.string().describe("Subject of the email"),
+            body: z.string().describe("Body of the email"),
         },
 
         outputSchema: z.object({
